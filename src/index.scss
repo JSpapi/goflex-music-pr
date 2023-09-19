@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --poppins: 'Poppins', sans-serif;
+  --inter: 'Inter', sans-serif;
+  --black: #171717;
+  --red: #e11720;
+  --orange: #f1af06;
+  --gradient-color: linear-gradient(90deg, #e11720 -7.79%, #2ec0ee 91.79%);
+  --white: #fff;
+  --neutral-100-day: #fafafa;
+  --neutral-400-day: #afb6b2;
+  --branding-red-tint-200: #ee4950;
+  --branding-red-tint-300: #f3777d;
+  --neutral-black-blue: #2e3a59;
+  --neutral-100-night: #272727;
+  --neutral-200-night: #313533;
+  --neutral-300-night: #49504d;
+  --neutral-500-night: #7a8580;
+  --neutral-600-night: #7a8580;
+  --neutral-700-night: #959d99;
+  --neutral-800-night: #afb6b2;
+  --neutral-900-night: #e4e7e5;
+  --border-radius-3: 3.815px;
+  --border-radius-4: 4.769px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: var(--inter);
+  background: var(--black);
+  color: var(--white);
+}
