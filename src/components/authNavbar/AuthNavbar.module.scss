@@ -1,0 +1,26 @@
+.nav {
+  padding: 20px 0;
+  border-bottom: 1.5px solid var(--neutral-500-night);
+  font-family: var(--poppins);
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+  }
+
+  &__link {
+    background: transparent;
+    color: var(--orange);
+    padding: 5px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .current {
+    background: var(--gradient-color);
+    color: var(--white);
+  }
+}

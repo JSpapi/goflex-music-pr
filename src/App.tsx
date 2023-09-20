@@ -1,4 +1,6 @@
 import { createTheme, ThemeProvider } from '@mui/material';
+import { AuthPage } from './authPages/AuthPages';
+import { AuthNavbar } from './components/authNavbar/AuthNavbar';
 
 const darkTheme = createTheme({
   palette: {
@@ -9,14 +11,9 @@ const darkTheme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
-      <>
-        <h1>tests</h1>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-          delectus.
-        </p>
-        <button type="button">test</button>
-      </>
+      <div>
+        <AuthPage />
+      </div>
     </ThemeProvider>
   );
 }
