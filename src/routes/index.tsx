@@ -1,8 +1,16 @@
+import { Login } from '../authPages/login/Login';
+import { Register } from '../authPages/register/Register';
+import { ConfirmName } from '../authPages/resetPassword/ConfirmName';
+import { ConfirmOtpCode } from '../authPages/resetPassword/ConfirmOtpCode';
+import { ResetPassword } from '../authPages/resetPassword/ResetPassword';
+import { Home } from '../pages/home/Home';
+import { Profile } from '../pages/profile/Profile';
+
 const routes = [
   {
     id: 'login',
     path: '/login',
-    element: '',
+    element: <Login />,
     isMenu: false,
     isPrivate: false,
   },
@@ -16,14 +24,14 @@ const routes = [
   {
     id: 'confirmOTPCode',
     path: '/confirmOTPCode',
-    element: <ConfirmOTPCode />,
+    element: <ConfirmOtpCode />,
     isMenu: false,
     isPrivate: false,
   },
   {
-    id: 'confirmEmail',
-    path: '/confirmEmail',
-    element: <ConfirmEmail />,
+    id: 'confirmName',
+    path: '/confirmName',
+    element: <ConfirmName />,
     isMenu: false,
     isPrivate: false,
   },
@@ -38,6 +46,13 @@ const routes = [
     id: 'profile',
     path: '/profile',
     element: <Profile />,
+    isMenu: true,
+    isPrivate: true,
+  },
+  {
+    id: 'home',
+    path: '/home',
+    element: <Home />,
     isMenu: true,
     isPrivate: true,
   },
