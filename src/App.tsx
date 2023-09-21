@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Login } from './authPages/login/Login';
 import AuthLayout from './components/authLayout/AuthLayout';
 import SharedLayout from './components/layout/SharedLayout';
+import { ParticlesAnim } from './components/particlesAnim/ParticlesAnim';
 import { Home } from './pages/home/Home';
 import { NotFound } from './pages/notFound/NotFound';
 import routes from './routes';
@@ -14,7 +15,7 @@ const darkTheme = createTheme({
 });
 
 function App() {
-  const isAuthcenticated = true;
+  const isAuthcenticated = false;
 
   const setRoutes = () =>
     routes.map(({ element, id, isMenu, isPrivate, path }) => {
