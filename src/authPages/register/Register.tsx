@@ -11,10 +11,8 @@ export function Register() {
         <AuthTitle>
           Create Your{' '}
           <span style={{ color: '#fff', fontWeight: 700 }}>Auditica</span>{' '}
-          Account
-          <p>and get 30% OFF</p>
+          Account and get 30% OFF
         </AuthTitle>
-        <InputField />
       </Container>
     </div>
   );

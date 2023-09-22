@@ -3,7 +3,7 @@ import LogoImg from '../../assets/logo-big.png';
 import s from './AuthTitle.module.scss';
 
 type Props = {
-  children: string;
+  children: React.ReactNode;
 };
 
 export function AuthTitle({ children }: Props) {
