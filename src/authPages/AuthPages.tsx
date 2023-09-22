@@ -1,5 +1,5 @@
-import { AuthNavbar } from '../components/authNavbar/AuthNavbar';
+// import { AuthNavbar } from '../components/authNavbar/AuthNavbar';
 
-export function AuthPage() {
-  return <div></div>;
-}
+// export function AuthPage() {
+//   return <div></div>;
+// }
