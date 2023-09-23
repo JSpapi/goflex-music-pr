@@ -1,15 +1,16 @@
-.authTitle{
-	display: flex;
-	align-items: flex-end;
-	justify-content: flex-start;
-	gap: 80px;
+.authTitle {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 80px;
+  margin-bottom: 50px;
 
-	&_info{
-		max-width: 320px;
-		width: 100%;
-		font-weight: 700;
-		font-size: 30px;
-		color: var(--red);
-		text-transform: capitalize;
-	}
+  &_info {
+    max-width: 320px;
+    width: 100%;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--red);
+    text-transform: capitalize;
+  }
 }
