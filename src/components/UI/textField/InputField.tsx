@@ -18,8 +18,8 @@ export function InputField({ name, ...restProps }: Props) {
       defaultValue=""
       render={({ field }) => (
         <TextField
-        {...restProps}
-        {...field}
+          {...restProps}
+          {...field}
           error={!!errors[name]?.message}
           helperText={errors[name] ? errors[name]?.message?.toString() : null}
         />
