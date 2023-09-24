@@ -14,7 +14,7 @@ export function Register() {
   const [imgFile, setImgFile] = useState('');
   const navigate = useNavigate();
 
-  // TODO 1 SCHEMA FOR REGISTRATION FALIDATION
+  // TODO 1 SCHEMA FOR REGISTRATION VALIDATION
   const registerSchema = object({
     name: string()
       .trim()
@@ -95,31 +95,31 @@ export function Register() {
                 size="small"
                 margin="dense"
                 variant="filled"
-                sx={{ marginBottom: 1 }}
+                sx={{ marginBottom: 1, backdropFilter: 'blur(3px)' }}
               />
               <InputField
                 name="name"
-                label="Имя"
+                label="Name"
                 size="small"
                 margin="dense"
                 variant="filled"
-                sx={{ marginBottom: 1, background: 'transparent' }}
+                sx={{ marginBottom: 1, backdropFilter: 'blur(3px)' }}
               />
               <PasswordField
                 name="password"
-                label="Пароль"
+                label="Password"
                 size="small"
                 margin="dense"
                 variant="filled"
-                sx={{ marginBottom: 1 }}
+                sx={{ marginBottom: 1, backdropFilter: 'blur(3px)' }}
               />
               <PasswordField
                 name="passwordConfirm"
-                label="Повторите пароль"
+                label="Password Confirm"
                 size="small"
                 margin="dense"
                 variant="filled"
-                sx={{ marginBottom: 2 }}
+                sx={{ marginBottom: 2, backdropFilter: 'blur(3px)' }}
               />
 
               <button className={s.authorization_form__btn} type="submit">
