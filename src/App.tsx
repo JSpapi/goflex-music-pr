@@ -1,12 +1,13 @@
 import { createTheme, ThemeProvider } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import { Login } from './authPages/login/Login';
 import AuthLayout from './components/authLayout/AuthLayout';
 import SharedLayout from './components/layout/SharedLayout';
-import { ParticlesAnim } from './components/particlesAnim/ParticlesAnim';
 import { Home } from './pages/home/Home';
 import { NotFound } from './pages/notFound/NotFound';
 import routes from './routes';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const darkTheme = createTheme({
   palette: {
@@ -44,6 +45,7 @@ function App() {
             </Route>
           )}
         </Routes>
+        <ToastContainer />
       </div>
     </ThemeProvider>
   );
