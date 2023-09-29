@@ -5,9 +5,9 @@ export interface IUser {
   name: string;
   password: string;
   profile?: string;
-  likedSongs: [];
-  likedPlaylists: [];
-  subscribedArtists: [];
+  likedSongs?: [];
+  likedPlaylists?: [];
+  subscribedArtists?: [];
 }
 // !AUTHORIZATION POST TYPE
 

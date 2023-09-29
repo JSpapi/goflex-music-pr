@@ -1,6 +1,6 @@
 import { Avatar, Container, Input, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -9,10 +9,15 @@ import { InputField } from '../../components/UI/textField/InputField';
 import s from '../authPages.module.scss';
 import { PasswordField } from '../../components/UI/passwordField/PasswordField';
 import { convertToBase } from '../../utils/convert';
+import { useRegisterMutation } from '../../services/auth.api';
 
 export function Register() {
+  // const [loading, setLoading] = useState(false);
   const [imgFile, setImgFile] = useState('');
   const navigate = useNavigate();
+
+  // !REGISTRATION POST REQUEST FN
+  const [registerUser, { isLoading: registerLoading }] = useRegisterMutation();
 
   // TODO 1 SCHEMA FOR REGISTRATION VALIDATION
   const registerSchema = object({
@@ -47,7 +52,19 @@ export function Register() {
 
   const { handleSubmit, reset } = methods;
 
-  // const onRegisterSubmit
+  // !REGISTRATION  SUBMIT FN
+  const onRegisterSubmit: SubmitHandler<RegisterField> = async (userData) => {
+    const { passwordConfirm, ...restData } = Object.assign(userData, {
+      profile: imgFile,
+    });
+
+    try {
+      await registerUser(restData).unwrap();
+    } catch (err) {}
+    reset();
+    // .then(() => console.log('success'))
+    // .catch(() => console.log('err'));
+  };
   // !CAN NOT HANDLE WITH TYPE PROBLEM NULL  AND HAD TO USE ANY HERE, AFTER GETTING  MORE INFO GONNA SOLVE IT
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const uploadImg = async (e: any) => {
@@ -67,7 +84,10 @@ export function Register() {
 
         <div className={s.authorization_fields}>
           <FormProvider {...methods}>
-            <form className={s.authorization_form}>
+            <form
+              className={s.authorization_form}
+              onSubmit={handleSubmit(onRegisterSubmit)}
+            >
               <div className={s.user_img}>
                 <label htmlFor="user">
                   <Avatar
