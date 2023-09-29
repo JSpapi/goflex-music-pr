@@ -4,6 +4,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'react-toastify';
 import { AuthTitle } from '../../components/authTitle/AuthTitle';
 import { InputField } from '../../components/UI/textField/InputField';
 import s from '../authPages.module.scss';
@@ -58,10 +59,34 @@ export function Register() {
     const { passwordConfirm, ...restData } = Object.assign(userData, {
       profile: imgFile,
     });
-
-    await registerUser(restData)
+    const registerId = toast.loading('Creating...');
+    registerUser(restData)
       .unwrap()
-      .catch((err: IError) => console.log(err));
+      .then((res) => {
+        toast.update(registerId, {
+          render: 'Account has created 👌',
+          type: 'success',
+          isLoading: false,
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        reset();
+      })
+      .catch((err: IError) => {
+        toast.update(registerId, {
+          render: err.data.message,
+          type: 'error',
+          isLoading: false,
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      });
   };
   // !CAN NOT HANDLE WITH TYPE PROBLEM NULL  AND HAD TO USE ANY HERE, AFTER GETTING  MORE INFO GONNA SOLVE IT
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -140,7 +165,12 @@ export function Register() {
                 sx={{ marginBottom: 2, backdropFilter: 'blur(3px)' }}
               />
 
-              <button className={s.authorization_form__btn} type="submit">
+              <button
+                className={s.authorization_form__btn}
+                style={registerLoading ? { opacity: 0.5 } : { opacity: 1 }}
+                type="submit"
+                disabled={registerLoading}
+              >
                 Create Account
               </button>
             </form>
