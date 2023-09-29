@@ -10,6 +10,7 @@ import s from '../authPages.module.scss';
 import { PasswordField } from '../../components/UI/passwordField/PasswordField';
 import { convertToBase } from '../../utils/convert';
 import { useRegisterMutation } from '../../services/auth.api';
+import { IError } from '../../types/errorMessage.type';
 
 export function Register() {
   // const [loading, setLoading] = useState(false);
@@ -58,12 +59,9 @@ export function Register() {
       profile: imgFile,
     });
 
-    try {
-      await registerUser(restData).unwrap();
-    } catch (err) {}
-    reset();
-    // .then(() => console.log('success'))
-    // .catch(() => console.log('err'));
+    await registerUser(restData)
+      .unwrap()
+      .catch((err: IError) => console.log(err));
   };
   // !CAN NOT HANDLE WITH TYPE PROBLEM NULL  AND HAD TO USE ANY HERE, AFTER GETTING  MORE INFO GONNA SOLVE IT
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
