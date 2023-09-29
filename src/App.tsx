@@ -45,7 +45,7 @@ function App() {
             </Route>
           )}
         </Routes>
-        <ToastContainer />
+        <ToastContainer theme="dark" />
       </div>
     </ThemeProvider>
   );
