@@ -17,10 +17,17 @@ export const authApi = api.injectEndpoints({
         body: userData,
       }),
     }),
+    current: builder.query<LoginResponseData, void>({
+      query: () => ({
+        url: '/current',
+        method: 'GET',
+      }),
+    }),
   }),
 });
 
-export const { useRegisterMutation, useLoginMutation } = authApi;
+export const { useRegisterMutation, useLoginMutation, useCurrentQuery } =
+  authApi;
 export const {
-  endpoints: { login, register },
+  endpoints: { login, register, current },
 } = authApi;

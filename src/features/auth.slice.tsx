@@ -34,6 +34,13 @@ const authSlice = createSlice({
           state.user = payload;
           state.isAuthenticated = true;
         }
+      )
+      .addMatcher(
+        authApi.endpoints.current.matchFulfilled,
+        (state, { payload }) => {
+          state.user = payload;
+          state.isAuthenticated = true;
+        }
       );
   },
 });
