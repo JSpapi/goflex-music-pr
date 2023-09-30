@@ -8,6 +8,7 @@ import { Home } from './pages/home/Home';
 import { NotFound } from './pages/notFound/NotFound';
 import routes from './routes';
 import 'react-toastify/dist/ReactToastify.min.css';
+import { useUser } from './hooks/userUser';
 
 const darkTheme = createTheme({
   palette: {
@@ -16,14 +17,13 @@ const darkTheme = createTheme({
 });
 
 function App() {
-  const isAuthcenticated = false;
-
+  const { isAuthenticated } = useUser();
   const setRoutes = () =>
     routes.map(({ element, id, isMenu, isPrivate, path }) => {
-      if (isPrivate && isAuthcenticated && isMenu) {
+      if (isPrivate && isAuthenticated && isMenu) {
         return <Route id={id} key={id} path={path} element={element} />;
       }
-      if (!isAuthcenticated && !isPrivate) {
+      if (!isAuthenticated && !isPrivate) {
         return <Route id={id} key={id} path={path} element={element} />;
       }
       return <Route key="not-found" path="*" element={<NotFound />} />;
@@ -33,7 +33,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <div>
         <Routes>
-          {isAuthcenticated ? (
+          {isAuthenticated ? (
             <Route path="/" element={<SharedLayout />}>
               <Route index element={<Home />} />
               {setRoutes()}

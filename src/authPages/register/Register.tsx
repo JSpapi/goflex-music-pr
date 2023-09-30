@@ -14,7 +14,6 @@ import { useRegisterMutation } from '../../services/auth.api';
 import { IError } from '../../types/errorMessage.type';
 
 export function Register() {
-  // const [loading, setLoading] = useState(false);
   const [imgFile, setImgFile] = useState('');
   const navigate = useNavigate();
 
@@ -47,14 +46,14 @@ export function Register() {
 
   type RegisterField = TypeOf<typeof registerSchema>;
 
-  // TODO 1 USEFORM COMBINING WITH ZOD
+  // TODO 2 USEFORM COMBINING WITH ZOD
   const methods = useForm<RegisterField>({
     resolver: zodResolver(registerSchema),
   });
 
   const { handleSubmit, reset } = methods;
 
-  // !REGISTRATION  SUBMIT FN
+  // TODO 2 REGISTRATION  SUBMIT FN
   const onRegisterSubmit: SubmitHandler<RegisterField> = async (userData) => {
     const { passwordConfirm, ...restData } = Object.assign(userData, {
       profile: imgFile,
@@ -73,6 +72,7 @@ export function Register() {
           pauseOnHover: true,
           draggable: true,
         });
+        navigate('/home');
         reset();
       })
       .catch((err: IError) => {
