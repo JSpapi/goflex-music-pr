@@ -9,6 +9,8 @@ import { NotFound } from './pages/notFound/NotFound';
 import routes from './routes';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { useUser } from './hooks/userUser';
+import { Test } from './components/preloader/Test';
+import { Preloader } from './components/preloader/Preloader';
 
 const darkTheme = createTheme({
   palette: {
@@ -31,22 +33,24 @@ function App() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <div>
-        <Routes>
-          {isAuthenticated ? (
-            <Route path="/" element={<SharedLayout />}>
-              <Route index element={<Home />} />
-              {setRoutes()}
-            </Route>
-          ) : (
-            <Route path="/" element={<AuthLayout />}>
-              <Route index element={<Login />} />
-              {setRoutes()}
-            </Route>
-          )}
-        </Routes>
-        <ToastContainer theme="dark" />
-      </div>
+      <Preloader>
+        <div>
+          <Routes>
+            {isAuthenticated ? (
+              <Route path="/" element={<SharedLayout />}>
+                <Route index element={<Home />} />
+                {setRoutes()}
+              </Route>
+            ) : (
+              <Route path="/" element={<AuthLayout />}>
+                <Route index element={<Login />} />
+                {setRoutes()}
+              </Route>
+            )}
+          </Routes>
+          <ToastContainer theme="dark" />
+        </div>
+      </Preloader>
     </ThemeProvider>
   );
 }
