@@ -51,7 +51,7 @@ const routes = [
   },
   {
     id: 'home',
-    path: '/home',
+    path: '/',
     element: <Home />,
     isMenu: true,
     isPrivate: true,
