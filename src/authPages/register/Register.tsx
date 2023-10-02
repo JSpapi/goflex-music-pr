@@ -10,7 +10,10 @@ import { InputField } from '../../components/UI/textField/InputField';
 import s from '../authPages.module.scss';
 import { PasswordField } from '../../components/UI/passwordField/PasswordField';
 import { convertToBase } from '../../utils/convert';
-import { useRegisterMutation } from '../../services/auth.api';
+import {
+  useRegisterMutation,
+  useSendEmailMutation,
+} from '../../services/auth.api';
 import { IError } from '../../types/errorMessage.type';
 
 export function Register() {
@@ -20,6 +23,8 @@ export function Register() {
   // !REGISTRATION POST REQUEST FN
   const [registerUser, { isLoading: registerLoading }] = useRegisterMutation();
 
+  // !SEND MESSAGE TO EMIL POST REQUEST FN
+  const [sendEmail, { isLoading: emailLoading }] = useSendEmailMutation();
   // TODO 1 SCHEMA FOR REGISTRATION VALIDATION
   const registerSchema = object({
     name: string()
@@ -70,7 +75,40 @@ export function Register() {
           pauseOnHover: true,
           draggable: true,
         });
-        navigate('/home');
+        if (!registerLoading) {
+          const { email, name } = res;
+
+          const emailId = toast.loading('sending...');
+
+          sendEmail({ email, name })
+            .unwrap()
+            .then((emailRes) => {
+              toast.update(emailId, {
+                render: 'Message has been sent to your email',
+                type: 'info',
+                isLoading: false,
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+              });
+            })
+            .catch((err: IError) => {
+              toast.update(emailId, {
+                render: err.data.message,
+                type: 'error',
+                isLoading: false,
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+              });
+            });
+        }
+
+        navigate('/');
         reset();
       })
       .catch((err: IError) => {

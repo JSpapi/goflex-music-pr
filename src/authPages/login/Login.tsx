@@ -57,7 +57,7 @@ export function Login() {
           pauseOnHover: true,
           draggable: true,
         });
-        navigate('/home');
+        navigate('/');
         reset();
       })
       .catch((err: IError) => {
