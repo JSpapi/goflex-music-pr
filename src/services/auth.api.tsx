@@ -1,4 +1,9 @@
-import { LoginData, LoginResponseData, UserData } from '../types/user.type';
+import {
+  LoginData,
+  LoginResponseData,
+  UserData,
+  IEmail,
+} from '../types/user.type';
 import { api } from './api';
 
 export const authApi = api.injectEndpoints({
@@ -17,6 +22,13 @@ export const authApi = api.injectEndpoints({
         body: userData,
       }),
     }),
+    sendEmail: builder.mutation<string, IEmail>({
+      query: (emailData) => ({
+        url: '/registerEmail',
+        method: 'POST',
+        body: emailData,
+      }),
+    }),
     current: builder.query<LoginResponseData, void>({
       query: () => ({
         url: '/current',
@@ -26,8 +38,12 @@ export const authApi = api.injectEndpoints({
   }),
 });
 
-export const { useRegisterMutation, useLoginMutation, useCurrentQuery } =
-  authApi;
+export const {
+  useRegisterMutation,
+  useLoginMutation,
+  useCurrentQuery,
+  useSendEmailMutation,
+} = authApi;
 export const {
   endpoints: { login, register, current },
 } = authApi;
