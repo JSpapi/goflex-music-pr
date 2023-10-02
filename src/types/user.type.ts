@@ -16,7 +16,7 @@ export type UserData = Omit<IUser, 'id'>;
 export type LoginResponseData = Omit<IUser, 'password'> & { token: string };
 
 // !LOGIN POST TYPE
-export type LoginData = Pick<UserData, 'email' | 'password'>;
+export type LoginData = Pick<UserData, 'name' | 'password'>;
 // !EMAIL POST TYPE
 
 export interface IEmail {

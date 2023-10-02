@@ -24,24 +24,22 @@ export function Register() {
   const registerSchema = object({
     name: string()
       .trim()
-      .nonempty('Поле обязательно к заполнению')
-      .min(2, 'Имя должно состоять не меньше 2 символов')
-      .max(32, 'Имя должно состоять не больше 32 символов'),
+      .nonempty('Name is required')
+      .min(2, 'Name must be at least 2 characters')
+      .max(32, 'Name must be no more than 32 characters'),
     email: string()
       .trim()
-      .nonempty('Поле обязательно к заполнению')
-      .email('электронная почта не действительна'),
+      .nonempty('Email is required')
+      .email('Email is not valid'),
     password: string()
       .trim()
-      .nonempty('Поле обязательно к заполнению')
-      .min(4, 'Пароль должен состоять не меньше 2 символов')
-      .max(32, 'Пароль должен состоять не больше 32 символов'),
-    passwordConfirm: string()
-      .trim()
-      .nonempty('Пожалуйста, подтвердите свой пароль'),
+      .nonempty('Password is required')
+      .min(4, 'Password must be at least 2 characters')
+      .max(32, 'Password must be no more than 32 characters'),
+    passwordConfirm: string().trim().nonempty('Please confirm your password'),
   }).refine((data) => data.password === data.passwordConfirm, {
     path: ['passwordConfirm'],
-    message: 'Пароли не совпадают',
+    message: 'Password mismatch',
   });
 
   type RegisterField = TypeOf<typeof registerSchema>;
