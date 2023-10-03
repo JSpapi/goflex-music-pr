@@ -1,19 +1,25 @@
 import { Avatar, Container, Input, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'react-toastify';
 import { AuthTitle } from '../../components/authTitle/AuthTitle';
 import s from '../authPages.module.scss';
 import { InputField } from '../../components/UI/textField/InputField';
-import { PasswordField } from '../../components/UI/passwordField/PasswordField';
-import { useLoginMutation } from '../../services/auth.api';
-import { IError } from '../../types/errorMessage.type';
+import { useGenerateOTPQuery } from '../../services/auth.api';
 
 export function ConfirmName() {
   const [name, setName] = useState('');
+  const [skip, setSkip] = useState(true);
+
+  // TODO 3 GENERATE OTP CODE REQUEST
+  const {
+    isLoading: otpCodeLoading,
+    data: otpResponse,
+    isError: otpError,
+  } = useGenerateOTPQuery(name, { skip });
+
   // TODO 1 SCHEMA FOR USER NAME VALIDATION
   const registerSchema = object({
     name: string()
@@ -22,6 +28,7 @@ export function ConfirmName() {
       .min(2, 'Name must be at least 2 characters')
       .max(32, 'Name must be no more than 32 characters'),
   });
+
   type NameField = TypeOf<typeof registerSchema>;
 
   // TODO 1 USEFORM COMBINING WITH ZOD
@@ -33,6 +40,8 @@ export function ConfirmName() {
 
   const onConfirmName: SubmitHandler<NameField> = (userData) => {
     setName(userData.name);
+    setSkip(false);
+    reset();
   };
 
   return (
@@ -65,8 +74,8 @@ export function ConfirmName() {
               <button
                 className={s.authorization_form__btn}
                 type="submit"
-                // style={loginLoading ? { opacity: 0.5 } : { opacity: 1 }}
-                // disabled={loginLoading}
+                style={otpCodeLoading ? { opacity: 0.5 } : { opacity: 1 }}
+                disabled={otpCodeLoading}
               >
                 Confirm Name
               </button>
