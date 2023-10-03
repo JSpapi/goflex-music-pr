@@ -3,6 +3,7 @@ import {
   LoginResponseData,
   UserData,
   IEmail,
+  IOtpCode,
 } from '../types/user.type';
 import { api } from './api';
 
@@ -35,6 +36,13 @@ export const authApi = api.injectEndpoints({
         method: 'GET',
       }),
     }),
+    generateOTP: builder.query<IOtpCode, string>({
+      query: (name) => ({
+        url: '/generateOtp',
+        method: 'GET',
+        body: { name },
+      }),
+    }),
   }),
 });
 
@@ -43,6 +51,7 @@ export const {
   useLoginMutation,
   useCurrentQuery,
   useSendEmailMutation,
+  useGenerateOTPQuery,
 } = authApi;
 export const {
   endpoints: { login, register, current },

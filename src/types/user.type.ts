@@ -25,3 +25,10 @@ export interface IEmail {
   text?: string;
   subject?: string | number;
 }
+
+// !GENERATE OTP CODE type
+
+export interface IOtpCode {
+  code: string;
+  email: string;
+}
