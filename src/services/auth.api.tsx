@@ -40,7 +40,7 @@ export const authApi = api.injectEndpoints({
       query: (name) => ({
         url: '/generateOtp',
         method: 'GET',
-        body: { name },
+        params: { name },
       }),
     }),
   }),
