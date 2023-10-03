@@ -108,7 +108,7 @@ export function Login() {
                 variant="filled"
                 sx={{ marginBottom: 2.3, backdropFilter: 'blur(3px)' }}
               />
-              <Link to="/confirmEmail" style={{ marginBottom: 15 }}>
+              <Link to="/ConfirmName" style={{ marginBottom: 15 }}>
                 Forgot password?
               </Link>
 
