@@ -1,13 +1,13 @@
-import { Avatar, Container, Input, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import { Container, Input, Typography } from '@mui/material';
+import { useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { toast } from 'react-toastify';
 import { AuthTitle } from '../../components/authTitle/AuthTitle';
 import s from '../authPages.module.scss';
 import { InputField } from '../../components/UI/textField/InputField';
 import { useGenerateOTPQuery } from '../../services/auth.api';
+import { useSendEmail } from '../../hooks/UseSendEmail';
 
 export function ConfirmName() {
   const [name, setName] = useState('');
@@ -16,9 +16,13 @@ export function ConfirmName() {
   // TODO 3 GENERATE OTP CODE REQUEST
   const {
     isLoading: otpCodeLoading,
+    isSuccess: otpSuccess,
     data: otpResponse,
     isError: otpError,
   } = useGenerateOTPQuery(name, { skip });
+
+  // TODO 4 SEND OTP CODE TO USER EMAIL HOOK
+  useSendEmail({ otpResponse, otpError, name, otpSuccess });
 
   // TODO 1 SCHEMA FOR USER NAME VALIDATION
   const registerSchema = object({
@@ -31,7 +35,7 @@ export function ConfirmName() {
 
   type NameField = TypeOf<typeof registerSchema>;
 
-  // TODO 1 USEFORM COMBINING WITH ZOD
+  // TODO 2 USEFORM COMBINING WITH ZOD
   const methods = useForm<NameField>({
     resolver: zodResolver(registerSchema),
   });
