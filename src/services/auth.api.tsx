@@ -4,6 +4,7 @@ import {
   UserData,
   IEmail,
   IOtpCode,
+  VerifyOTPData,
 } from '../types/user.type';
 import { api } from './api';
 
@@ -43,6 +44,13 @@ export const authApi = api.injectEndpoints({
         params: { name },
       }),
     }),
+    verifyOTP: builder.query<{ message: string }, VerifyOTPData>({
+      query: ({ name, code }) => ({
+        url: '/verifyOtp',
+        method: 'GET',
+        params: { name, code },
+      }),
+    }),
   }),
 });
 
@@ -52,6 +60,7 @@ export const {
   useCurrentQuery,
   useSendEmailMutation,
   useGenerateOTPQuery,
+  useVerifyOTPQuery,
 } = authApi;
 export const {
   endpoints: { login, register, current },

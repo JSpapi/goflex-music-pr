@@ -32,3 +32,5 @@ export interface IOtpCode {
   code: string;
   email: string;
 }
+
+export type VerifyOTPData = Omit<IOtpCode, 'email'> & { name: string };
