@@ -46,9 +46,9 @@ export function Login() {
 
     loginUser(loginData)
       .unwrap()
-      .then(() => {
+      .then((res) => {
         toast.update(loginId, {
-          render: 'Welcome back ^_^',
+          render: `Welcome back ${res.name} ^_^`,
           type: 'success',
           isLoading: false,
           autoClose: 3000,
