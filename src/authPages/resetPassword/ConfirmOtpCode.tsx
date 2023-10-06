@@ -15,7 +15,11 @@ import {
 } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthTitle } from '../../components/authTitle/AuthTitle';
-import { useVerifyOTPQuery } from '../../services/auth.api';
+import { useSendEmail } from '../../hooks/UseSendEmail';
+import {
+  useGenerateOTPQuery,
+  useVerifyOTPQuery,
+} from '../../services/auth.api';
 import s from '../authPages.module.scss';
 
 let currentOTPIndex = 0;
@@ -28,6 +32,7 @@ export function ConfirmOtpCode() {
   const [activeOTPIndex, setActiveOTPIndex] = useState(0);
   const [name, setName] = useState(searchParams.get('name') || '');
   const [skipVerifyRequest, setSkipVerifyRequest] = useState(true);
+  const [skipGenerateOtpRequest, setSkipGenerateOtpRequest] = useState(true);
 
   // TODO 5 VERIFY OTP REQUEST
   const {
@@ -38,6 +43,16 @@ export function ConfirmOtpCode() {
     { code: otp.join(''), name },
     { skip: skipVerifyRequest }
   );
+  // TODO 5 REGENERATE OTP CODE REQUEST
+  const {
+    isSuccess: otpSuccess,
+    data: otpResponse,
+    isError: otpError,
+  } = useGenerateOTPQuery(name, { skip: skipGenerateOtpRequest });
+
+  // TODO 6 SEND OTP CODE TO USER EMAIL HOOK
+  useSendEmail({ otpResponse, otpSuccess, name, otpError });
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   // TODO 1 GET VALUE OR DELETE VALUE OF EACH INPUT AND SET TO OTP STATE
@@ -132,7 +147,11 @@ export function ConfirmOtpCode() {
 
             <p style={{ fontSize: 12, textAlign: 'center' }}>
               didn`t get OTP code?{' '}
-              <button type="button" className={s.authorization_form__resendBtn}>
+              <button
+                type="button"
+                className={s.authorization_form__resendBtn}
+                onClick={() => setSkipGenerateOtpRequest(false)}
+              >
                 Resend the code
               </button>
             </p>
