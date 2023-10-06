@@ -4,12 +4,17 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthTitle } from '../../components/authTitle/AuthTitle';
 import s from '../authPages.module.scss';
 import { InputField } from '../../components/UI/textField/InputField';
-import { useGenerateOTPQuery } from '../../services/auth.api';
+import {
+  useGenerateOTPQuery,
+  useResetPasswordMutation,
+} from '../../services/auth.api';
 import { useSendEmail } from '../../hooks/UseSendEmail';
 import { PasswordField } from '../../components/UI/passwordField/PasswordField';
+import { IError } from '../../types/errorMessage.type';
 
 export function ResetPassword() {
   // todo GETTING PARAMS
@@ -17,6 +22,10 @@ export function ResetPassword() {
   const navigate = useNavigate();
 
   const [name, setName] = useState(searchParams.get('name') || '');
+
+  // TODO 3 RESET PASSWORD PUT REQUEST
+  const [resetPassword, { isLoading: resetLoading }] =
+    useResetPasswordMutation();
 
   // TODO 1 SCHEMA FOR USER NAME VALIDATION
   const registerSchema = object({
@@ -39,7 +48,36 @@ export function ResetPassword() {
   const { handleSubmit, reset } = methods;
 
   const onResetSubmit: SubmitHandler<ResetField> = async (passwordData) => {
-    console.log(passwordData);
+    const { password } = passwordData;
+    const resetId = toast.loading('Ждем ответа...');
+    resetPassword({ name, password })
+      .unwrap()
+      .then((res) => {
+        toast.update(resetId, {
+          render: 'Password has been updated',
+          type: 'success',
+          isLoading: false,
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        navigate('/login');
+        reset();
+      })
+      .catch((err: IError) => {
+        toast.update(resetId, {
+          render: err.data.message,
+          type: 'error',
+          isLoading: false,
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      });
   };
 
   return (
@@ -77,8 +115,8 @@ export function ResetPassword() {
               <button
                 className={s.authorization_form__btn}
                 type="submit"
-                // style={otpCodeLoading ? { opacity: 0.5 } : { opacity: 1 }}
-                // disabled={otpCodeLoading}
+                style={resetLoading ? { opacity: 0.5 } : { opacity: 1 }}
+                disabled={resetLoading}
               >
                 Reset Password
               </button>
