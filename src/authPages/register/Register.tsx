@@ -39,7 +39,7 @@ export function Register() {
     password: string()
       .trim()
       .nonempty('Password is required')
-      .min(4, 'Password must be at least 2 characters')
+      .min(4, 'Password must be at least 4 characters')
       .max(32, 'Password must be no more than 32 characters'),
     passwordConfirm: string().trim().nonempty('Please confirm your password'),
   }).refine((data) => data.password === data.passwordConfirm, {
