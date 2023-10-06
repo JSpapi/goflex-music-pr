@@ -8,6 +8,8 @@ import {
 } from '../types/user.type';
 import { api } from './api';
 
+type RessetPasswordData = Pick<UserData, 'name' | 'password'>;
+
 export const authApi = api.injectEndpoints({
   endpoints: (builder) => ({
     register: builder.mutation<LoginResponseData, UserData>({
@@ -29,6 +31,13 @@ export const authApi = api.injectEndpoints({
         url: '/registerEmail',
         method: 'POST',
         body: emailData,
+      }),
+    }),
+    resetPassword: builder.mutation<string, RessetPasswordData>({
+      query: (newPassword) => ({
+        url: '/resetPassword',
+        method: 'PUT',
+        body: newPassword,
       }),
     }),
     current: builder.query<LoginResponseData, void>({
@@ -61,6 +70,7 @@ export const {
   useSendEmailMutation,
   useGenerateOTPQuery,
   useVerifyOTPQuery,
+  useResetPasswordMutation,
 } = authApi;
 export const {
   endpoints: { login, register, current },
