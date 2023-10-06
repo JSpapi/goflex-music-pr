@@ -71,7 +71,8 @@ export const useSendEmail = ({
   };
   // TODO 1 USE EFFECT THAT  CALL FUNCTION TO SEND MESSAGE TO USER EMAIL
   useEffect(() => {
-    if (otpError || otpSuccess) handleSendEmailRequest(otpResponse, name);
+    if (otpError || otpSuccess || otpResponse)
+      handleSendEmailRequest(otpResponse, name);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [otpError, otpSuccess]);
 };

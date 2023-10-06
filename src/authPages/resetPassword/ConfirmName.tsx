@@ -23,7 +23,6 @@ export function ConfirmName() {
 
   // TODO 4 SEND OTP CODE TO USER EMAIL HOOK
   useSendEmail({ otpResponse, otpError, name, otpSuccess });
-
   // TODO 1 SCHEMA FOR USER NAME VALIDATION
   const registerSchema = object({
     name: string()
