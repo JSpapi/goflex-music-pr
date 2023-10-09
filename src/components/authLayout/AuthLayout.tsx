@@ -1,6 +1,6 @@
+import { AuthNavbar } from '@components/authNavbar/AuthNavbar';
+import { ParticlesAnim } from '@components/particlesAnim/ParticlesAnim';
 import { Outlet } from 'react-router-dom';
-import { AuthNavbar } from '../authNavbar/AuthNavbar';
-import { ParticlesAnim } from '../particlesAnim/ParticlesAnim';
 
 function AuthLayout() {
   return (

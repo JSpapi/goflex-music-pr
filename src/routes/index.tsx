@@ -1,10 +1,10 @@
-import { Login } from '../authPages/login/Login';
-import { Register } from '../authPages/register/Register';
-import { ConfirmName } from '../authPages/resetPassword/ConfirmName';
-import { ConfirmOtpCode } from '../authPages/resetPassword/ConfirmOtpCode';
-import { ResetPassword } from '../authPages/resetPassword/ResetPassword';
-import { Home } from '../pages/home/Home';
-import { Profile } from '../pages/profile/Profile';
+import { Login } from '@authPages/login/Login';
+import { Register } from '@authPages/register/Register';
+import { ConfirmName } from '@authPages/resetPassword/ConfirmName';
+import { ConfirmOtpCode } from '@authPages/resetPassword/ConfirmOtpCode';
+import { ResetPassword } from '@authPages/resetPassword/ResetPassword';
+import { Home } from '@pages/home/Home';
+import { Profile } from '@pages/profile/Profile';
 
 const routes = [
   {

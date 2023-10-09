@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
+import { LeftBar } from '@components/leftBar/LeftBar';
 import CssBaseline from '@mui/material/CssBaseline';
-import { LeftBar } from '../leftBar/LeftBar';
 import s from './SharedLayout.module.scss';
 
 function SharedLayout() {

@@ -1,4 +1,7 @@
+import { AuthTitle } from '@components/authTitle/AuthTitle';
+import { useSendEmail } from '@hooks/UseSendEmail';
 import { Container } from '@mui/material';
+import { useGenerateOTPQuery, useVerifyOTPQuery } from '@services/auth.api';
 import {
   ChangeEvent,
   FormEvent,
@@ -14,15 +17,11 @@ import {
   useSearchParams,
 } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { AuthTitle } from '../../components/authTitle/AuthTitle';
-import { useSendEmail } from '../../hooks/UseSendEmail';
-import {
-  useGenerateOTPQuery,
-  useVerifyOTPQuery,
-} from '../../services/auth.api';
+
 import s from '../authPages.module.scss';
 
 let currentOTPIndex = 0;
+
 export function ConfirmOtpCode() {
   // todo GETTING PARAMS
   const [searchParams] = useSearchParams();

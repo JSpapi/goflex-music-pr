@@ -14,13 +14,13 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
 import { NavLink } from 'react-router-dom';
+import logo from '@assets/logo.svg';
+import home from '@assets/icons/home-fill.svg';
+import dashboard from '@assets/icons/dashboard.svg';
+import heart from '@assets/icons/heart.svg';
+import headphone from '@assets/icons/headphone.svg';
+import rhythm from '@assets/icons/rhythm-fill.svg';
 import s from './LeftBar.module.scss';
-import logo from '../../assets/logo.svg';
-import home from '../../assets/icons/home-fill.svg';
-import dashboard from '../../assets/icons/dashboard.svg';
-import heart from '../../assets/icons/heart.svg';
-import headphone from '../../assets/icons/headphone.svg';
-import rhythm from '../../assets/icons/rhythm-fill.svg';
 
 const drawerWidth = 286;
 const miniDrawer = 100;

@@ -1,20 +1,15 @@
-import { Container, Input, Typography } from '@mui/material';
+import { Container } from '@mui/material';
 import { useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { AuthTitle } from '../../components/authTitle/AuthTitle';
+import { useResetPasswordMutation } from '@services/auth.api';
+import { IError } from 'types/errorMessage.type';
+import { AuthTitle } from '@components/authTitle/AuthTitle';
+import { PasswordField } from '@components/UI/passwordField/PasswordField';
 import s from '../authPages.module.scss';
-import { InputField } from '../../components/UI/textField/InputField';
-import {
-  useGenerateOTPQuery,
-  useResetPasswordMutation,
-} from '../../services/auth.api';
-import { useSendEmail } from '../../hooks/UseSendEmail';
-import { PasswordField } from '../../components/UI/passwordField/PasswordField';
-import { IError } from '../../types/errorMessage.type';
 
 export function ResetPassword() {
   // todo GETTING PARAMS

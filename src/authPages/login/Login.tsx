@@ -1,16 +1,15 @@
-import { Avatar, Container, Input, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import { Container } from '@mui/material';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'react-toastify';
-import { AuthTitle } from '../../components/authTitle/AuthTitle';
+import { useLoginMutation } from '@services/auth.api';
+import { AuthTitle } from '@components/authTitle/AuthTitle';
+import { InputField } from '@components/UI/textField/InputField';
+import { PasswordField } from '@components/UI/passwordField/PasswordField';
+import { IError } from 'types/errorMessage.type';
 import s from '../authPages.module.scss';
-import { InputField } from '../../components/UI/textField/InputField';
-import { PasswordField } from '../../components/UI/passwordField/PasswordField';
-import { useLoginMutation } from '../../services/auth.api';
-import { IError } from '../../types/errorMessage.type';
 
 export function Login() {
   const navigate = useNavigate();

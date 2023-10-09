@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoImg from '../../assets/logo-big.png';
+import LogoImg from '@assets/logo-big.png';
 import s from './AuthTitle.module.scss';
 
 type Props = {

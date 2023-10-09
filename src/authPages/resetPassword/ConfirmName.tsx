@@ -1,13 +1,13 @@
-import { Container, Input, Typography } from '@mui/material';
+import { Container } from '@mui/material';
 import { useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { AuthTitle } from '../../components/authTitle/AuthTitle';
+import { useGenerateOTPQuery } from '@services/auth.api';
+import { AuthTitle } from '@components/authTitle/AuthTitle';
+import { InputField } from '@components/UI/textField/InputField';
+import { useSendEmail } from '@hooks/UseSendEmail';
 import s from '../authPages.module.scss';
-import { InputField } from '../../components/UI/textField/InputField';
-import { useGenerateOTPQuery } from '../../services/auth.api';
-import { useSendEmail } from '../../hooks/UseSendEmail';
 
 export function ConfirmName() {
   const [name, setName] = useState('');
