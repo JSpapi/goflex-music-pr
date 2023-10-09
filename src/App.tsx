@@ -1,16 +1,20 @@
 import { createTheme, ThemeProvider } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { Login } from './authPages/login/Login';
-import AuthLayout from './components/authLayout/AuthLayout';
-import SharedLayout from './components/layout/SharedLayout';
-import { Home } from './pages/home/Home';
-import { NotFound } from './pages/notFound/NotFound';
+
+import AuthLayout from '@components/authLayout/AuthLayout';
+import SharedLayout from '@components/layout/SharedLayout';
+import { Preloader } from '@components/preloader/Preloader';
+
+import { useUser } from '@hooks/userUser';
+
+import { Login } from '@authPages/login/Login';
+import { Home } from '@pages/home/Home';
+import { NotFound } from '@pages/notFound/NotFound';
+
 import routes from './routes';
+
 import 'react-toastify/dist/ReactToastify.min.css';
-import { useUser } from './hooks/userUser';
-import { Test } from './components/preloader/Test';
-import { Preloader } from './components/preloader/Preloader';
 
 const darkTheme = createTheme({
   palette: {

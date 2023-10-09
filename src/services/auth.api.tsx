@@ -1,11 +1,11 @@
 import {
+  IEmail,
+  IOtpCode,
   LoginData,
   LoginResponseData,
   UserData,
-  IEmail,
-  IOtpCode,
   VerifyOTPData,
-} from '../types/user.type';
+} from 'types/user.type';
 import { api } from './api';
 
 type RessetPasswordData = Pick<UserData, 'name' | 'password'>;

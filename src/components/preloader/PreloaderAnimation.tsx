@@ -1,7 +1,4 @@
-import React from 'react';
-import testI from './Preloader.svg';
 import s from './preloader.module.scss';
-
 
 export function PreloaderAnimation() {
   return (

@@ -1,20 +1,16 @@
-import { Avatar, Container, Input, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import { Avatar, Container, Typography } from '@mui/material';
+import { useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'react-toastify';
-import { AuthTitle } from '../../components/authTitle/AuthTitle';
-import { InputField } from '../../components/UI/textField/InputField';
+import { useRegisterMutation, useSendEmailMutation } from '@services/auth.api';
+import { AuthTitle } from '@components/authTitle/AuthTitle';
+import { InputField } from '@components/UI/textField/InputField';
+import { PasswordField } from '@components/UI/passwordField/PasswordField';
+import { convertToBase } from '@utils/convert';
 import s from '../authPages.module.scss';
-import { PasswordField } from '../../components/UI/passwordField/PasswordField';
-import { convertToBase } from '../../utils/convert';
-import {
-  useRegisterMutation,
-  useSendEmailMutation,
-} from '../../services/auth.api';
-import { IError } from '../../types/errorMessage.type';
 
 export function Register() {
   const [imgFile, setImgFile] = useState('');

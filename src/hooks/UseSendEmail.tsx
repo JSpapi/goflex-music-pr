@@ -1,9 +1,9 @@
+import { useSendEmailMutation } from '@services/auth.api';
 import { useEffect } from 'react';
 import { createSearchParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useSendEmailMutation } from '../services/auth.api';
-import { IError } from '../types/errorMessage.type';
-import { IOtpCode } from '../types/user.type';
+import { IError } from 'types/errorMessage.type';
+import { IOtpCode } from 'types/user.type';
 
 // ! NEEDED PROPS TO SEND OTP CODE TO USER EMAIL
 interface IProps {

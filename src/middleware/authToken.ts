@@ -1,5 +1,5 @@
 import { createListenerMiddleware } from '@reduxjs/toolkit';
-import { authApi } from '../services/auth.api';
+import { authApi } from '@services/auth.api';
 
 export const listenerMiddleware = createListenerMiddleware();
 // TODO REGISTER TOKEN

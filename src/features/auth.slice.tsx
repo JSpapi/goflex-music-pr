@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import { authApi } from '../services/auth.api';
-import { LoginResponseData } from '../types/user.type';
+import { authApi } from '@services/auth.api';
+import { LoginResponseData } from 'types/user.type';
 
 interface IInitialState {
   user: LoginResponseData | null;
