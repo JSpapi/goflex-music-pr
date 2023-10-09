@@ -16,7 +16,7 @@ export function AuthNavbar() {
             Create Account
           </NavLink>
           <NavLink
-            to="login"
+            to={'login' && '/'}
             className={({ isActive }) =>
               isActive ? s.nav__link : [s.nav__link, s.current].join(' ')
             }
