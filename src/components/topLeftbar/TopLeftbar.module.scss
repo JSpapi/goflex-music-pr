@@ -1,0 +1,41 @@
+.leftbar_topList_link {
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  img {
+    width: 23px;
+    height: 23px;
+
+    @media (max-width: 900px) {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  span {
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--white);
+
+    @media (max-width: 900px) {
+      display: none;
+    }
+  }
+
+  &.activeLink {
+    background: var(--branding-red-tint-200);
+    border-radius: var(--border-radius-3);
+
+    span {
+      font-weight: 700;
+      color: var(--neutral-100-day);
+    }
+  }
+
+  @media (max-width: 900px) {
+    gap: 0px;
+    justify-content: center;
+  }
+}

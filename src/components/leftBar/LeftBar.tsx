@@ -1,25 +1,14 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-
 import { NavLink } from 'react-router-dom';
 import logo from '@assets/logo.svg';
+import logoSmall from '@assets/logo-mini.svg';
 import home from '@assets/icons/home-fill.svg';
 import dashboard from '@assets/icons/dashboard.svg';
 import heart from '@assets/icons/heart.svg';
 import headphone from '@assets/icons/headphone.svg';
-import rhythm from '@assets/icons/rhythm-fill.svg';
+import { TopLeftbar } from '@components/topLeftbar/TopLeftbar';
+import { BottomLeftbar } from '@components/bottomLeftbar/BottomLeftbar';
+import { BottomLeftAdaptive } from '@components/bottomLeftAdaptive/BottomLeftAdaptive';
 import s from './LeftBar.module.scss';
 
 const drawerWidth = 286;
@@ -32,13 +21,38 @@ export function LeftBar() {
     { id: 't4', icon: headphone, name: 'Library', path: 'library' },
   ];
   const bottomNavigation = [
-    { id: 'b1', name: 'For workplace', path: 'workplace' },
-    { id: 'b2', name: 'Rich Brian"s collections', path: 'brainCollection' },
-    { id: 'b3', name: 'deep focus', path: 'deepFocuse' },
-    { id: 'b4', name: 'Lo-Fi Jazz upbeat', path: 'lofi' },
-    { id: 'b5', name: 'Christmas playlist', path: 'christmas' },
+    {
+      id: 'b1',
+      name: 'For workplace',
+      path: 'workplace',
+      img: 'https://i.scdn.co/image/ab67706c0000da8441441f50bab81dd4e4cf8d00',
+    },
+    {
+      id: 'b2',
+      name: 'Rich Brian"s collections',
+      path: 'brainCollection',
+      img: 'https://i.scdn.co/image/ab67616d00001e021907b9219e8b4f7a644d6f3f',
+    },
+    {
+      id: 'b3',
+      name: 'deep focus',
+      path: 'deepFocuse',
+      img: 'https://i.scdn.co/image/ab67706c0000da848ba5c6e825f743f38f182965',
+    },
+    {
+      id: 'b4',
+      name: 'Lo-Fi Jazz upbeat',
+      path: 'lofi',
+      img: 'https://i.scdn.co/image/ab67706c0000da84b8bbacde3a2f7846cc88d08e',
+    },
+    {
+      id: 'b5',
+      name: 'Christmas playlist',
+      path: 'christmas',
+      img: 'https://i.scdn.co/image/ab67616d00001e02bb653f725d8a3d0c58983111',
+    },
   ];
-
+  // TODO LOGO ADAPTIVE
   return (
     <Drawer
       sx={{
@@ -49,54 +63,22 @@ export function LeftBar() {
           background: 'var(--neutral-100-night)',
           px: 2.5,
           overflow: 'hidden',
+          textAlign: { md: 'start', xs: 'center' },
         },
       }}
-      className={s.leftBar}
       variant="permanent"
       anchor="left"
     >
       <NavLink to="/" className={s.logo}>
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="logo" className={s.logo_big} />
+        <img src={logoSmall} alt="logo-small" className={s.logo_small} />
       </NavLink>
 
-      <ul className={s.leftbar_topList}>
-        {topNavigation.map(({ icon, id, name, path }) => (
-          <NavLink
-            to={`/${path}`}
-            key={id}
-            className={({ isActive }) =>
-              isActive
-                ? [s.leftbar_topList_link, s.activeLink].join(' ')
-                : s.leftbar_topList_link
-            }
-          >
-            <img src={icon} alt={name} /> <span>{name}</span>
-          </NavLink>
-        ))}
-      </ul>
+      <TopLeftbar topList={topNavigation} />
 
-      <ul className={s.leftbar_bottomList}>
-        {bottomNavigation.map(({ id, name, path }, index) => (
-          <NavLink
-            to={`/${path}`}
-            key={id}
-            className={({ isActive }) =>
-              isActive
-                ? [s.leftbar_bottomList_link, s.activeLink].join(' ')
-                : s.leftbar_bottomList_link
-            }
-          >
-            {index === 0 ? (
-              <>
-                <span>{name}</span>
-                <img src={rhythm} alt="rhytm" />
-              </>
-            ) : (
-              <span>{name}</span>
-            )}
-          </NavLink>
-        ))}
-      </ul>
+      <BottomLeftbar bottomList={bottomNavigation} />
+
+      <BottomLeftAdaptive adaptiveList={bottomNavigation} />
     </Drawer>
   );
 }
