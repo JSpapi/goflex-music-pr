@@ -7,8 +7,8 @@ import { toast } from 'react-toastify';
 import { useLoginMutation } from '@services/auth.api';
 import { AuthTitle } from '@components/authTitle/AuthTitle';
 import { InputField } from '@components/UI/textField/InputField';
-import { PasswordField } from '@components/UI/passwordField/PasswordField';
 import { IError } from 'types/errorMessage.type';
+import { PasswordField } from '@components/UI/passwordField/PasswordField';
 import s from '../authPages.module.scss';
 
 export function Login() {

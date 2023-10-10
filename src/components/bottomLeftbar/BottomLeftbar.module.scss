@@ -1,0 +1,24 @@
+.leftbar_bottomList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 48px;
+
+  &_link {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: var(--neutral-700-night);
+    &.activeLink {
+      color: var(--branding-red-tint-300);
+    }
+  }
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+	
