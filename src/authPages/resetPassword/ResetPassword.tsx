@@ -63,7 +63,7 @@ export function ResetPassword() {
       })
       .catch((err: IError) => {
         toast.update(resetId, {
-          render: err.data.message,
+          render: err.data?.message,
           type: 'error',
           isLoading: false,
           autoClose: 3000,
