@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 import { RootState } from 'src/store';
 // eslint-disable-next-line import/no-cycle
 
-const AUTH_API = 'http://localhost:3060/api/user';
+const AUTH_API = 'http://localhost:3060/api/';
 
 const baseQuery = fetchBaseQuery({
   baseUrl: AUTH_API,
