@@ -37,6 +37,6 @@ module.exports = {
     'import/prefer-default-export': 0,
     'react/jsx-props-no-spreading': 0,
     'import/no-cycle': 0,
-    'eslint-disable no-param-reassign': 0,
+    'no-param-reassign': 0,
   },
 };
