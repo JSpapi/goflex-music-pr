@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { songApi } from '@services/song.api';
+import { ISong } from 'types/song.type';
 
-const initialState = {
+interface IInitialState {
+  mySongs: ISong[] | null;
+}
+
+const initialState: IInitialState = {
   mySongs: null,
 };
 
