@@ -23,3 +23,5 @@ const mySongsSlice = createSlice({
     );
   },
 });
+
+export const { actions, reducer } = mySongsSlice;
