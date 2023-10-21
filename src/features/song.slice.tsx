@@ -3,25 +3,25 @@ import { songApi } from '@services/song.api';
 import { ISong } from 'types/song.type';
 
 interface IInitialState {
-  mySongs: ISong[] | null;
+  songs: ISong[] | null;
 }
 
 const initialState: IInitialState = {
-  mySongs: null,
+  songs: null,
 };
 
-const mySongsSlice = createSlice({
-  name: 'mySongs',
+const songsSlice = createSlice({
+  name: 'songs',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addMatcher(
       songApi.endpoints.getMySongs.matchFulfilled,
       (state, { payload }) => {
-        state.mySongs = payload;
+        state.songs = payload;
       }
     );
   },
 });
 
-export const { actions, reducer } = mySongsSlice;
+export const { actions, reducer } = songsSlice;
