@@ -10,8 +10,6 @@ interface IProps {
   song: ISong;
 }
 export function VerticalSliderItem({ song }: IProps) {
-  const [scale, setScale] = useState(false);
-
   // !CODE FOR SEPARATING ARTIST NAME FROM SONG NAME
   const ind = song.name.indexOf('-');
   const artistName = song.name.slice(0, ind + 1);
@@ -19,11 +17,7 @@ export function VerticalSliderItem({ song }: IProps) {
 
   return (
     <>
-      <div
-        className={
-          scale ? [s.slider_img, s.slider_scale].join(' ') : s.slider_img
-        }
-      >
+      <div className={s.slider_img}>
         <img src={song.thumbnail} alt={song.name} />
       </div>
       <div className={s.slider_song}>

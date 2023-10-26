@@ -6,15 +6,12 @@ import { VerticalSliderItem } from '@components/verticalSliderItem/VerticalSlide
 
 import 'swiper/scss';
 import 'swiper/scss/effect-fade';
-import { ISong } from 'types/song.type';
+import { useSongs } from '@hooks/useSongs';
 import s from './VerticalSlider.module.scss';
 
-interface IProps {
-  data: ISong[];
-}
-
-export function VerticalSlider({ data }: IProps) {
+export function VerticalSlider() {
   // const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const songs = useSongs();
 
   return (
     <>
@@ -23,14 +20,14 @@ export function VerticalSlider({ data }: IProps) {
         centeredSlides
         effect="fade"
         loop
-        // autoplay={{
-        //   delay: 5000,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
         modules={[Autoplay, EffectFade]}
         className={s.verticalSlider}
       >
-        {data.map((song) => (
+        {songs?.map((song) => (
           <SwiperSlide key={song.name} className={s.slider}>
             <VerticalSliderItem song={song} />
           </SwiperSlide>
