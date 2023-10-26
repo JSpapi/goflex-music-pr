@@ -1,0 +1,12 @@
+.verticalSlider {
+  width: 100%;
+  border-radius: 8px;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.slider {
+  width: 100% !important;
+  color: var(--neutral-100-day);
+}

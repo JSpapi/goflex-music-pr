@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { LeftBar } from '@components/leftBar/LeftBar';
 import CssBaseline from '@mui/material/CssBaseline';
+import { RightBar } from '@components/rightBar/RightBar';
 import s from './SharedLayout.module.scss';
 
 function SharedLayout() {
@@ -8,10 +9,10 @@ function SharedLayout() {
     <div className={s.layout}>
       <CssBaseline />
       <LeftBar />
-      <main style={{ flexGrow: 1, padding: 55 }}>
+      <main className={s.main}>
         <Outlet />
       </main>
-      leftbar
+      <RightBar />
     </div>
   );
 }

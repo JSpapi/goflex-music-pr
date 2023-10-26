@@ -2,6 +2,7 @@ import { Button, Skeleton } from '@mui/material';
 import React, { useState } from 'react';
 import { useGetMySongsQuery } from '@services/song.api';
 import { IError } from 'types/errorMessage.type';
+import { VerticalSlider } from '@components/verticalSlider/VerticalSlider';
 import { useActions } from '../../hooks/useActions';
 
 export function Home() {
@@ -27,17 +28,26 @@ export function Home() {
 
   return (
     <div>
-      {isFetching && (
-        <div style={{ width: 210 }}>
-          <Skeleton variant="rectangular" width={210} height={118} />
-          <div style={{ margin: '30px 0' }}>
+      {isFetching && !songData && (
+        <div>
+          <Skeleton
+            variant="rectangular"
+            width="100%"
+            height={819}
+            style={{ borderRadius: 7 }}
+          />
+          {/* <div >
             <Skeleton />
             <Skeleton variant="rectangular" width="60%" />
-          </div>
+          </div> */}
         </div>
       )}
       {isError && !isFetching && <h1>there is an error</h1>}
-      {isSuccess && !isError && !isLoading && <h1>Hi there</h1>}
+      {isSuccess && !isError && !isLoading && (
+        <div >
+          <VerticalSlider data={songData} />
+        </div>
+      )}
 
       <Button onClick={logOut} variant="contained">
         Log out

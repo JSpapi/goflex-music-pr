@@ -2,10 +2,10 @@ import Drawer from '@mui/material/Drawer';
 import { NavLink } from 'react-router-dom';
 import logo from '@assets/logo.svg';
 import logoSmall from '@assets/logo-mini.svg';
-import home from '@assets/icons/home-fill.svg';
-import dashboard from '@assets/icons/dashboard.svg';
-import heart from '@assets/icons/heart.svg';
-import headphone from '@assets/icons/headphone.svg';
+import home from '@assets/navbar-icons/home-fill.svg';
+import dashboard from '@assets/navbar-icons/dashboard.svg';
+import heart from '@assets/navbar-icons/heart.svg';
+import headphone from '@assets/navbar-icons/headphone.svg';
 import { TopLeftbar } from '@components/topLeftbar/TopLeftbar';
 import { BottomLeftbar } from '@components/bottomLeftbar/BottomLeftbar';
 import { BottomLeftAdaptive } from '@components/bottomLeftAdaptive/BottomLeftAdaptive';
@@ -56,14 +56,14 @@ export function LeftBar() {
   return (
     <Drawer
       sx={{
-        width: drawerWidth,
-        flexShrink: { md: 0, xs: 0.8 },
+        width: { lg: drawerWidth, xs: miniDrawer },
+        flexShrink: { lg: 0, xs: 0.8 },
         '& .MuiDrawer-paper': {
-          width: { md: drawerWidth, xs: miniDrawer },
+          width: { lg: drawerWidth, xs: miniDrawer },
           background: 'var(--neutral-100-night)',
           px: 2.5,
           overflow: 'hidden',
-          textAlign: { md: 'start', xs: 'center' },
+          textAlign: { lg: 'start', xs: 'center' },
         },
       }}
       variant="permanent"
