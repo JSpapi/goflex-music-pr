@@ -8,7 +8,7 @@
     width: 23px;
     height: 23px;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1199px) {
       width: 28px;
       height: 28px;
     }
@@ -19,7 +19,7 @@
     font-weight: 500;
     color: var(--white);
 
-    @media (max-width: 900px) {
+    @media (max-width: 1199px) {
       display: none;
     }
   }
@@ -34,7 +34,7 @@
     }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1199px) {
     gap: 0px;
     justify-content: center;
   }

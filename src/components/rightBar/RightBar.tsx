@@ -1,5 +1,5 @@
 import React from 'react';
 
 export function RightBar() {
-  return <div>RightBar</div>;
+  return <div style={{ width: 437 }}>RightBar</div>;
 }

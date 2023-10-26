@@ -1,4 +1,4 @@
-import rhythm from '@assets/icons/rhythm-fill.svg';
+import rhythm from '@assets/navbar-icons/rhythm-fill.svg';
 import { NavLink } from 'react-router-dom';
 import s from './BottomLeftbar.module.scss';
 
