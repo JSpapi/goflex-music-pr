@@ -32,11 +32,12 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'react', 'prettier'],
   rules: {
-    'react/react-in-jsx-scope': 0,
-    '@typescript-eslint/no-unused-vars': 0,
+    'react/react-in-jsx-scope': 'warn',
+    '@typescript-eslint/no-unused-vars': 'warn',
     'import/prefer-default-export': 0,
-    'react/jsx-props-no-spreading': 0,
-    'import/no-cycle': 0,
-    'no-param-reassign': 0,
+    'react/jsx-props-no-spreading': 'warn',
+    'import/no-cycle': 'warn',
+    'no-param-reassign': 'warn',
+    'react/require-default-props': 'warn',
   },
 };
