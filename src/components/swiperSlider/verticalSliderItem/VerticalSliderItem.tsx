@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import sliderMenu from '@assets/content-icons/more_horizontal.svg';
 
 import { HorizontalMoreinfo } from '@components/horizontalMoreinfo/HorizontalMoreinfo';

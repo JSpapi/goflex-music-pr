@@ -11,7 +11,7 @@ import { BottomLeftbar } from '@components/bottomLeftbar/BottomLeftbar';
 import { BottomLeftAdaptive } from '@components/bottomLeftAdaptive/BottomLeftAdaptive';
 import s from './LeftBar.module.scss';
 
-const drawerWidth = 286;
+const drawerWidth = '15%';
 const miniDrawer = 100;
 export function LeftBar() {
   const topNavigation = [

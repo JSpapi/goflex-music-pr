@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/scss/effect-fade';
 import 'swiper/scss/thumbs';
 
 import { EffectFade, Autoplay, Thumbs } from 'swiper/modules';
-import { VerticalSliderItem } from '@components/verticalSliderItem/VerticalSliderItem';
+import { VerticalSliderItem } from '@components/swiperSlider/verticalSliderItem/VerticalSliderItem';
 
 import { useSongs } from '@hooks/useSongs';
 import s from './VerticalSlider.module.scss';

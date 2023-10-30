@@ -2,13 +2,13 @@ import { Button, Skeleton } from '@mui/material';
 import React, { useState } from 'react';
 import { useGetMySongsQuery } from '@services/song.api';
 import { IError } from 'types/errorMessage.type';
-import { VerticalSlider } from '@components/verticalSlider/VerticalSlider';
+import { VerticalSlider } from '@components/swiperSlider/verticalSlider/VerticalSlider';
 import { PlaylistView } from '@components/playlistView/PlaylistView';
 
 import { useActions } from '@hooks/useActions';
 import playIcon from '@assets/content-icons/play_icon_filled.svg';
 import pauseIcon from '@assets/content-icons/pause_icon_filled.svg';
-import { PlaylistCard } from '@components/playlistComponents/playlistCard/PlaylistCard';
+import { PlaylistCardsCarousel } from '@components/swiperSlider/playlistCardsCarousel/PlaylistCardsCarousel';
 
 export function Home() {
   const [songError, setSongError] = useState<IError>({
@@ -49,18 +49,21 @@ export function Home() {
       )}
       {isError && !isFetching && <h1>there is an error</h1>}
       {isSuccess && !isError && !isLoading && (
-        <div>
-          <VerticalSlider />
+        <>
+          <div>
+            <VerticalSlider />
+          </div>
+          <div>
+            <PlaylistView
+              titleText="New Release"
+              playIcon={playIcon}
+              pauseIcon={pauseIcon}
+              linkText="see more"
+            />
 
-          <PlaylistView
-            titleText="New Release"
-            playIcon={playIcon}
-            pauseIcon={pauseIcon}
-            linkText="see more"
-          />
-
-          <PlaylistCard />
-        </div>
+            <PlaylistCardsCarousel />
+          </div>
+        </>
       )}
 
       <Button onClick={logOut} variant="contained">
