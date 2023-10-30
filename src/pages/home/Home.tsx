@@ -8,6 +8,7 @@ import { PlaylistView } from '@components/playlistView/PlaylistView';
 import { useActions } from '@hooks/useActions';
 import playIcon from '@assets/content-icons/play_icon_filled.svg';
 import pauseIcon from '@assets/content-icons/pause_icon_filled.svg';
+import { PlaylistCard } from '@components/playlistComponents/playlistCard/PlaylistCard';
 
 export function Home() {
   const [songError, setSongError] = useState<IError>({
@@ -57,6 +58,8 @@ export function Home() {
             pauseIcon={pauseIcon}
             linkText="see more"
           />
+
+          <PlaylistCard />
         </div>
       )}
 
