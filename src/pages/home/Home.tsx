@@ -67,7 +67,12 @@ export function Home() {
               }
               playlists={<PlaylistCardsCarousel />}
             />
-            <PlaylistsCircleList />
+            <PlaylistsSection
+              title={
+                <PlaylistView titleText="You May Like" linkText="see more" />
+              }
+              playlists={<PlaylistsCircleList />}
+            />
           </div>
         </>
       )}
