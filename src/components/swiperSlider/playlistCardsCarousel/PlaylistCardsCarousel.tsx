@@ -7,7 +7,25 @@ import s from './PlaylistCardsCarousel.module.scss';
 export function PlaylistCardsCarousel() {
   return (
     <div className={s.playlist_carousel}>
-      <Swiper slidesPerView={6.3} spaceBetween={25} className="mySwiper">
+      <Swiper
+        slidesPerView={2.3}
+        spaceBetween={25}
+        className="mySwiper"
+        breakpoints={{
+          1880: {
+            slidesPerView: 6.3,
+          },
+          1500: {
+            slidesPerView: 5.3,
+          },
+          1024: {
+            slidesPerView: 4.3,
+          },
+          768: {
+            slidesPerView: 3.3,
+          },
+        }}
+      >
         {Array.from({ length: 10 }).map((index) => (
           <SwiperSlide className={s.playlist_card} key={index}>
             <PlaylistCard />
