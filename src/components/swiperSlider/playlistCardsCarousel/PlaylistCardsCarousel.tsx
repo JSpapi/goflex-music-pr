@@ -4,9 +4,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import s from './PlaylistCardsCarousel.module.scss';
 
+// interface IProps [
+//   playlists
+// ]
+
 export function PlaylistCardsCarousel() {
   return (
-    <div className={s.playlist_carousel}>
+    <div className={s.playlists_carousel}>
       <Swiper
         slidesPerView={2.3}
         spaceBetween={25}
@@ -27,7 +31,7 @@ export function PlaylistCardsCarousel() {
         }}
       >
         {Array.from({ length: 10 }).map((index) => (
-          <SwiperSlide className={s.playlist_card} key={index}>
+          <SwiperSlide key={index}>
             <PlaylistCard />
           </SwiperSlide>
         ))}

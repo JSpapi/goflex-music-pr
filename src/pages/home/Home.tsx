@@ -9,6 +9,7 @@ import { useActions } from '@hooks/useActions';
 import playIcon from '@assets/content-icons/play_icon_filled.svg';
 import pauseIcon from '@assets/content-icons/pause_icon_filled.svg';
 import { PlaylistCardsCarousel } from '@components/swiperSlider/playlistCardsCarousel/PlaylistCardsCarousel';
+import { PlaylistsSection } from '@components/playlistsSection/PlaylistsSection';
 
 export function Home() {
   const [songError, setSongError] = useState<IError>({
@@ -54,14 +55,17 @@ export function Home() {
             <VerticalSlider />
           </div>
           <div>
-            <PlaylistView
-              titleText="New Release"
-              playIcon={playIcon}
-              pauseIcon={pauseIcon}
-              linkText="see more"
+            <PlaylistsSection
+              title={
+                <PlaylistView
+                  titleText="New Release"
+                  playIcon={playIcon}
+                  pauseIcon={pauseIcon}
+                  linkText="see more"
+                />
+              }
+              playlists={<PlaylistCardsCarousel />}
             />
-
-            <PlaylistCardsCarousel />
           </div>
         </>
       )}
