@@ -84,6 +84,10 @@ body {
 .font_regular {
   font-size: 15px;
   font-weight: 600;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 }
 
 .font_subregular {
@@ -93,6 +97,10 @@ body {
 
   &:hover {
     border-bottom: 1px solid var(--neutral-800-night);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 10px;
   }
 }
 
