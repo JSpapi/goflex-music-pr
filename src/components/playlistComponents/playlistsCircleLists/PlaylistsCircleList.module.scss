@@ -1,0 +1,21 @@
+.playlists_circle {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 1500px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  @media (max-width: 1040px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
