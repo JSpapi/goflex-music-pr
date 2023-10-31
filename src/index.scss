@@ -15,6 +15,7 @@
   --sky: #2ec0ee;
   --orange: #f1af06;
   --gradient-color: linear-gradient(90deg, #e11720 -7.79%, #2ec0ee 91.79%);
+  --circle-gradient: linear-gradient(-180deg, #ff3740, #fd9900);
   --neutral-100-day: #fafafa;
   --neutral-400-day: #afb6b2;
   --branding-red-tint-200: #ee4950;
@@ -94,6 +95,7 @@ body {
   font-size: 13px;
   font-weight: 400;
   border-bottom: 2px solid transparent;
+  color: var(--neutral-800-night);
 
   &:hover {
     border-bottom: 1px solid var(--neutral-800-night);

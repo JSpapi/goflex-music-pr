@@ -1,4 +1,4 @@
-.playlist {
+.playlist_card {
   width: 100%;
   display: inline-block;
   cursor: pointer;
@@ -22,7 +22,4 @@
     color: var(--neutral-900-night);
   }
 
-  a {
-    color: var(--neutral-800-night);
-  }
 }
