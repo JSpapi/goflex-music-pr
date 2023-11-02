@@ -24,6 +24,7 @@
   --neutral-100-night: #272727;
   --neutral-200-night: #313533;
   --neutral-300-night: #49504d;
+  --neutral-400-night: #626a66;
   --neutral-500-night: #7a8580;
   --neutral-600-night: #7a8580;
   --neutral-700-night: #959d99;
@@ -94,7 +95,7 @@ body {
 .font_subregular {
   font-size: 13px;
   font-weight: 400;
-  border-bottom: 2px solid transparent;
+  border-bottom:  1px solid transparent;
   color: var(--neutral-800-night);
 
   &:hover {

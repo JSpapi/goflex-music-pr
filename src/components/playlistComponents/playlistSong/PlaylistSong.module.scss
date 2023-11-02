@@ -1,0 +1,54 @@
+.song {
+  width: 100%;
+  display: grid;
+  //   grid-template-columns: 4fr 2fr 2fr 1fr;
+  grid-template-columns: 6fr 4fr 3fr minmax(120px, 1fr);
+  padding: 10px;
+  transition: all 0.3s ease 0s;
+  &:hover {
+    background: rgba(255, 255, 255, 0.148);
+  }
+
+  &_details,
+  &_artist,
+  &_playlist,
+  &_addToFavorites {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &_details {
+    &_index {
+      margin-right: 17px;
+      color: var(--neutral-400-night);
+    }
+
+    img {
+      width: 47px;
+      height: 47px;
+      object-fit: cover;
+      margin-right: 10px;
+      border-radius: 2px;
+    }
+
+    &_name {
+      color: var(--neutral-800-night);
+    }
+  }
+
+  &_link {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--neutral-600-night);
+  }
+
+  &_addToFavorites {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--neutral-800-night);
+    font-size: 15px;
+    font-weight: 400;
+  }
+}

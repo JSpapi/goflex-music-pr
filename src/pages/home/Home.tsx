@@ -11,6 +11,7 @@ import pauseIcon from '@assets/content-icons/pause_icon_filled.svg';
 import { PlaylistCardsCarousel } from '@components/swiperSlider/playlistCardsCarousel/PlaylistCardsCarousel';
 import { PlaylistsSection } from '@components/playlistsSection/PlaylistsSection';
 import { PlaylistsCircleList } from '@components/playlistComponents/playlistsCircleLists/PlaylistsCircleList';
+import { PlaylistSong } from '@components/playlistComponents/playlistSong/PlaylistSong';
 
 export function Home() {
   const [songError, setSongError] = useState<IError>({
@@ -73,6 +74,11 @@ export function Home() {
               }
               playlists={<PlaylistsCircleList />}
             />
+
+            <PlaylistSong />
+            <PlaylistSong />
+            <PlaylistSong />
+            <PlaylistSong />
           </div>
         </>
       )}

@@ -2,6 +2,9 @@
   position: relative;
 
   .center_hearts {
+    width: inherit;
+    height: inherit;
+
     &_inner {
       fill: transparent;
       transition: 0.2s ease;
