@@ -32,7 +32,7 @@ export function VerticalSliderItem({ song }: IProps) {
 
         <div className={s.slider_song_controllers}>
           <HorizontalMoreinfo menuIcon={sliderMenu} />
-          <LikeBtn style={{ width: 45, height: 45 }} />
+          <LikeBtn style={{ width: 60, height: 30 }} />
 
           <button className={s.slider_song_controllers_playBtn} type="button">
             Play
