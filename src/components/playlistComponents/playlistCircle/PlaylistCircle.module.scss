@@ -1,3 +1,5 @@
+@use '../../../gloablStyles/index';
+
 .playlist_circle {
   max-width: 120px;
   width: 100%;
@@ -7,6 +9,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+
   &_img {
     width: 100%;
     height: 120px;
@@ -28,6 +31,11 @@
     @media (max-width: 1880px) {
       height: 90px;
     }
+  }
+
+  h4 {
+    color: var(--white);
+    @extend .font_semibold;
   }
 
   @media (max-width: 1880px) {

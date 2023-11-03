@@ -1,3 +1,5 @@
+@use '../../../gloablStyles/index' as *;
+
 .playlist_card {
   width: 100%;
   display: inline-block;
@@ -8,7 +10,7 @@
     height: 250px;
     object-fit: cover;
     margin-bottom: 10px;
-    border-radius: var(--border-radius-3);
+    @include border-radious(3.815px);
 
     @media (max-width: 1880px) {
       height: 171px;
@@ -19,7 +21,6 @@
   }
 
   h4 {
-    color: var(--neutral-900-night);
+    @extend .font_semibold;
   }
-
 }

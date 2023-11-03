@@ -12,7 +12,7 @@ export function PlaylistCircle() {
         />
       </div>
       <div className={s.playlist_circle_info}>
-        <h4 className="font_regular">Way Back Home</h4>
+        <h4>Way Back Home</h4>
         <NavLink to="/test" className="font_subregular">
           SHAUN
         </NavLink>

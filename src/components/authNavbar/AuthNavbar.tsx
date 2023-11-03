@@ -10,7 +10,7 @@ export function AuthNavbar() {
           <NavLink
             to="register"
             className={({ isActive }) =>
-              isActive ? s.nav__link : [s.nav__link, s.current].join(' ')
+              isActive ? [s.nav__link, s.current].join(' ') : s.nav__link
             }
           >
             Create Account
@@ -18,7 +18,7 @@ export function AuthNavbar() {
           <NavLink
             to={'login' && '/'}
             className={({ isActive }) =>
-              isActive ? s.nav__link : [s.nav__link, s.current].join(' ')
+              isActive ? [s.nav__link, s.current].join(' ') : s.nav__link
             }
           >
             Login

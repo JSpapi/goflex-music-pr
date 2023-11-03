@@ -1,7 +1,8 @@
+@use '../../../gloablStyles/index' as *;
+
 .song {
   width: 100%;
   display: grid;
-  //   grid-template-columns: 4fr 2fr 2fr 1fr;
   grid-template-columns: 6fr 4fr 3fr minmax(120px, 1fr);
   padding: 10px;
   transition: all 0.3s ease 0s;
@@ -34,13 +35,14 @@
 
     &_name {
       color: var(--neutral-800-night);
+      @extend .font_semibold;
     }
   }
 
   &_link {
-    font-size: 15px;
-    font-weight: 400;
     color: var(--neutral-600-night);
+    @extend .font_regular;
+    @include border-bottom();
   }
 
   &_addToFavorites {
@@ -48,7 +50,6 @@
     align-items: center;
     gap: 10px;
     color: var(--neutral-800-night);
-    font-size: 15px;
-    font-weight: 400;
+    @extend .font_regular;
   }
 }
