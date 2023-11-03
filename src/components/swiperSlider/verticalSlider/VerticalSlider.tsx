@@ -55,7 +55,7 @@ export function VerticalSlider() {
       >
         {bannerPlaylist.map((genre) => (
           <SwiperSlide key={genre.playlist} className={s.genreSlider_slide}>
-            <p className={s.genreSlider_slide_genreName}>{genre.playlist}</p>
+            <p>{genre.playlist}</p>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -11,8 +11,9 @@
   }
 
   &__link {
-    background: transparent;
-    color: var(--orange);
+    background: var(--gradient-color);
+    color: var(--white);
+
     padding: 5px 30px;
     border-radius: 5px;
     font-size: 16px;
@@ -20,7 +21,7 @@
   }
 
   .current {
-    background: var(--gradient-color);
-    color: var(--white);
+    background: transparent;
+    color: var(--orange);
   }
 }

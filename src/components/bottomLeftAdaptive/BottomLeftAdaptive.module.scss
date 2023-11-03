@@ -1,3 +1,5 @@
+@use '../../gloablStyles/index' as *;
+
 .bottomList_adaptive {
   display: none;
   margin-top: 25px;
@@ -7,7 +9,7 @@
       margin-bottom: 5px;
       width: 58px;
       height: 58px;
-      border-radius: var(--border-radius-4);
+      @include border-radious(4.769px);
       object-fit: contain;
     }
   }

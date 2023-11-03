@@ -1,0 +1,11 @@
+@mixin border-radious($radious) {
+  border-radius: $radious;
+}
+
+@mixin border-bottom() {
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-bottom: 1px solid var(--neutral-800-night);
+  }
+}

@@ -1,0 +1,51 @@
+@use './mixines' as *;
+
+.font_semibold {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--neutral-900-night);
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.font_regular {
+  font-size: 15px;
+  font-weight: 400;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.font_subregular {
+  font-size: 13px;
+  font-weight: 400;
+  @include border-bottom();
+
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
+}
+
+// ? SWIPER ZOOM HAD TO WRITE GLOABL AS THERE WERE PROBLEM WITH GENRE CONTROLLER
+
+.swiper-slide-visible div:first-child {
+  animation: zoom 30s !important;
+}
+
+.swiper-slide-thumb-active P {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--neutral-100-night);
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}

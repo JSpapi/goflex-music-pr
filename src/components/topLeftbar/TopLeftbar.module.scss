@@ -1,3 +1,5 @@
+@use '../../gloablStyles/mixines' as *;
+
 .leftbar_topList_link {
   padding: 15px 10px;
   display: flex;
@@ -26,7 +28,7 @@
 
   &.activeLink {
     background: var(--branding-red-tint-200);
-    border-radius: var(--border-radius-3);
+    @include border-radious(3.815px);
 
     span {
       font-weight: 700;

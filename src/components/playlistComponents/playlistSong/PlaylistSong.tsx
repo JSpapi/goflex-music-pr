@@ -12,7 +12,7 @@ export function PlaylistSong() {
           src="https://res.cloudinary.com/dx3tdf3e7/image/upload/v1698668997/auditica-files/tjc7hsju3pndutcvtzdy.jpg"
           alt="test"
         />
-        <span className={[s.song_details_name, 'font_regular'].join(' ')}>
+        <span className={s.song_details_name}>
           All I Want For Christmas Is You
         </span>
       </div>

@@ -12,7 +12,7 @@ export function PlaylistCard() {
         />
       </div>
       <div className={s.playlist_card_info}>
-        <h4 className="font_regular">Red (Taylor&apos;s Version)</h4>
+        <h4>Red (Taylor&apos;s Version)</h4>
         <NavLink to="/test" className="font_subregular">
           Taylor Swift
         </NavLink>
