@@ -12,6 +12,7 @@ import { PlaylistCardsCarousel } from '@components/swiperSlider/playlistCardsCar
 import { PlaylistsSection } from '@components/playlistsSection/PlaylistsSection';
 import { PlaylistsCircleList } from '@components/playlistComponents/playlistsCircleLists/PlaylistsCircleList';
 import { PlaylistSong } from '@components/playlistComponents/playlistSong/PlaylistSong';
+import { PlaylistSongResponsive } from '@components/playlistComponents/playlistSongResponsive/PlaylistSongResponsive';
 
 export function Home() {
   const [songError, setSongError] = useState<IError>({
@@ -75,10 +76,11 @@ export function Home() {
               playlists={<PlaylistsCircleList />}
             />
 
+            {/* <PlaylistSong />
             <PlaylistSong />
+            <PlaylistSong /> */}
             <PlaylistSong />
-            <PlaylistSong />
-            <PlaylistSong />
+            <PlaylistSongResponsive />
           </div>
         </>
       )}
