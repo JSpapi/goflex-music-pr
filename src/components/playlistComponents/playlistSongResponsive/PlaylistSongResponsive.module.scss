@@ -1,0 +1,41 @@
+@use '../../../gloablStyles/index' as *;
+.responsiveSong {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &_info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      margin-right: 10px;
+      border-radius: 2px;
+    }
+
+    &_details {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      span {
+        color: var(--neutral-800-night);
+        @extend .font_semibold;
+      }
+
+      font-size: 14px;
+      font-weight: 400;
+
+      a {
+        color: var(--neutral-800-night);
+        @extend .font_regular;
+      }
+    }
+  }
+
+  &_menu{
+    margin-left: 10px;
+  }
+}
