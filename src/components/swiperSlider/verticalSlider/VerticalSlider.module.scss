@@ -1,9 +1,6 @@
 .verticalSlider {
   width: 100%;
   border-radius: 8px;
-  @media (max-width: 768px) {
-    display: none !important;
-  }
 }
 
 .slider {
@@ -40,9 +37,5 @@
   @media (max-width: 1040px) {
     max-width: 100px;
     top: 10%;
-  }
-
-  @media (max-width: 768px) {
-    display: none !important;
   }
 }

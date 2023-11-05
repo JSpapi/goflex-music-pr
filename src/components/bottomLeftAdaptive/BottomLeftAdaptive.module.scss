@@ -1,7 +1,7 @@
 @use '../../gloablStyles/index' as *;
 
 .bottomList_adaptive {
-  display: none;
+  display: block;
   margin-top: 25px;
   overflow-y: auto;
   &_link {
@@ -12,9 +12,5 @@
       @include border-radious(4.769px);
       object-fit: contain;
     }
-  }
-
-  @media (max-width: 1199px) {
-    display: block;
   }
 }

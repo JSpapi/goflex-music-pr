@@ -10,10 +10,13 @@ import { TopLeftbar } from '@components/topLeftbar/TopLeftbar';
 import { BottomLeftbar } from '@components/bottomLeftbar/BottomLeftbar';
 import { BottomLeftAdaptive } from '@components/bottomLeftAdaptive/BottomLeftAdaptive';
 import s from './LeftBar.module.scss';
+import { useWindowSize } from 'usehooks-ts';
 
 const drawerWidth = '15%';
 const miniDrawer = 100;
 export function LeftBar() {
+  const { width } = useWindowSize();
+
   const topNavigation = [
     { id: 't1', icon: home, name: 'Home', path: '' },
     { id: 't2', icon: dashboard, name: 'Bowse', path: 'categories' },
@@ -76,9 +79,11 @@ export function LeftBar() {
 
       <TopLeftbar topList={topNavigation} />
 
-      <BottomLeftbar bottomList={bottomNavigation} />
-
-      <BottomLeftAdaptive adaptiveList={bottomNavigation} />
+      {width >= 1199 ? (
+        <BottomLeftbar bottomList={bottomNavigation} />
+      ) : (
+        <BottomLeftAdaptive adaptiveList={bottomNavigation} />
+      )}
     </Drawer>
   );
 }
