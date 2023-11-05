@@ -12,12 +12,14 @@ import { PlaylistCardsCarousel } from '@components/swiperSlider/playlistCardsCar
 import { PlaylistsSection } from '@components/playlistsSection/PlaylistsSection';
 import { PlaylistsCircleList } from '@components/playlistComponents/playlistsCircleLists/PlaylistsCircleList';
 import { PlaylistSongLists } from '@components/playlistComponents/playlistSongLists/PlaylistSongLists';
+import { useWindowSize } from 'usehooks-ts';
 
 export function Home() {
   const [songError, setSongError] = useState<IError>({
     data: { message: '' },
     status: 0,
   });
+  const { width } = useWindowSize();
 
   const { authLogout } = useActions();
 
@@ -53,9 +55,7 @@ export function Home() {
       {isError && !isFetching && <h1>there is an error</h1>}
       {isSuccess && !isError && !isLoading && (
         <>
-          <div>
-            <VerticalSlider />
-          </div>
+          {width >= 768 ? <VerticalSlider /> : null}
           <div>
             <PlaylistsSection
               title={
