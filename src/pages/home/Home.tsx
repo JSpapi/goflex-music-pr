@@ -55,7 +55,7 @@ export function Home() {
       {isError && !isFetching && <h1>there is an error</h1>}
       {isSuccess && !isError && !isLoading && (
         <>
-          {width >= 768 ? <VerticalSlider /> : null}
+          {width >= 768 && <VerticalSlider />}
           <div>
             <PlaylistsSection
               title={
