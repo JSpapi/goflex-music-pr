@@ -1,5 +1,8 @@
 import React from 'react';
+import { useWindowSize } from 'usehooks-ts';
 
 export function RightBar() {
-  return <div style={{ width: '27%' }}>RightBar</div>;
+  const { width } = useWindowSize();
+
+  return width >= 992 && <div style={{ width: '27%' }}>RightBar</div>;
 }
